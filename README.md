@@ -112,6 +112,7 @@ Method: `POST`
 # User Login
 
 Endpoint: `/user/login`
+
 Method: `POST`
 
 - Request Body:
@@ -143,8 +144,11 @@ Method: `POST`
 # Product Search
 
 Endpoint: `/product/search`
+
 ex: http://localhost:3000/product/search?searchKeyword=Casual&priceMin=100&priceMax=1000
+
 Method: `GET`
+
 We Can Pass Key in Params section or In URL
 We Have To Include The Token We got from Login api in Headers
 With Key : Authorization And Value : "Token Got From Login api"
@@ -264,8 +268,11 @@ Response (Success):
 # Product Recommendation
 
 Endpoint: `/product/recommendation`
+
 http://localhost:3000/product/recommendation?username=raju_cs
+
 Method: `GET`
+
 We Can Pass Key in Params section or In URL
 We Have To Include The Token We got from Login api in Headers
 With Key : Authorization And Value : "Token Got From Login api"

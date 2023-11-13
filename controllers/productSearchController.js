@@ -6,11 +6,14 @@ const productSearchController = {
     try {
       const { searchKeyword, priceMin, priceMax } = req.query;
 
-      const result = await CatalogModel.find({
-        $text: { $search: searchKeyword },
-      })
-        .sort({ rank: 1 })
-        .limit(10);
+      let query = { $text: { $search: searchKeyword } };
+
+      // Apply price range filter if provided
+      if (priceMin !== undefined && priceMax !== undefined) {
+        query.price = { $gte: parseInt(priceMin), $lte: parseInt(priceMax) };
+      }
+
+      const result = await CatalogModel.find(query).sort({ rank: 1 }).limit(10);
 
       res.json(result);
     } catch (error) {
